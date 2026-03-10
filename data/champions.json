@@ -1,0 +1,15 @@
+{
+  "Katarina": 
+  {
+    "stats": {
+      "base_ad": 58,
+      "ad_per_level": 3.2
+    },
+    "abilities": {
+      "P": {"base": [68, 240], "ap_ratio": 0.70, "bonus_ad_ratio": 0.60},
+      "Q": {"base": [80, 115, 150, 185, 220], "ap_ratio": 0.40},
+      "E": {"base": [20, 30, 40, 50, 60], "ad_ratio": 0.40, "ap_ratio": 0.25},
+      "R": {"base_per_dagger": [25, 37.5, 50], "bonus_ad_ratio": 0.18}
+    }
+  }
+}
