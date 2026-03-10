@@ -43,8 +43,23 @@ class Irelia(BaseChampion):
     def get_w_damage(self, rank):
         ability = self.data["abilities"]["W"]
         return ability["base"][rank - 1] + (self.total_ad * ability["ad_ratio"]) + (self.total_ap * ability["ap_ratio"])
+    
+    def get_e_damage(self, rank):
+        ability = self.data["abilities"]["E"]
+        return ability["base"][rank - 1] + (self.total_ap * ability["ap_ratio"])
 
     def get_r_damage(self, rank, hits=2):
         ability = self.data["abilities"]["R"]
         per_hit = ability["base_per_hit"][rank - 1] + (self.total_ap * ability["ap_ratio"])
         return per_hit * hits
+    
+    def no_ult_combo(self, q_rank=1, w_rank=1, e_rank=1, r_rank=1):
+        q = self.get_q_damage(q_rank)
+        w = self.get_w_damage(w_rank)
+        e = self.get_e_damage(e_rank)
+        r = self.get_r_damage(r_rank)
+        onhit = self.get_on_hit_damage(4) # assuming she has 4 stacks todo fix this later
+        auto =  onhit + self.base_ad + self.bonus_ad
+
+        total = e + q + auto + q + w + auto * 2
+        return total

@@ -1,4 +1,5 @@
 from src.champions.katarina import Katarina
+from src.champions.irelia import Irelia
 import json
 
 
@@ -19,3 +20,10 @@ if __name__ == "__main__":
     print(f"Katarina E dmg: {kat.get_e_damage(rank=1)}") # E test is slightly off in game, but close enough for now
     # a test of kata's basic combo - Q + E on dagger + W + R with full channel, 2 passive procs on one target
     print(f"Katarina Q-E-W-R dmg: {kat.get_qewr_damage(q_rank=3, e_rank=1, r_rank=3)}")
+
+
+    # irelia test
+
+    irelia = Irelia(level=1)
+
+    print(f"Irelia no R combo damage: {irelia.no_ult_combo(q_rank=5, w_rank=3, e_rank=1, r_rank=1)}")
