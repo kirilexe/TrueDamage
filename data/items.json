@@ -8,5 +8,15 @@
       "base_damage": 15,
       "ap_ratio": 0.20
     }
+  },
+  "Blade of the ruined king": {
+    "stats": {
+      "ad": 40,
+      "attack_speed": 0.25
+    },
+    "on_hit": {
+      "percent_damage_melee": 0.09,
+      "ap_ratio": 0.20
+    }
   }
 }

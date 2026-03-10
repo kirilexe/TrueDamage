@@ -31,7 +31,7 @@ class Irelia(BaseChampion):
         scaling_dmg = self.bonus_ad * ability["on_hit_magic_damage"]["bonus_ad_ratio"]
         return base_magic_dmg + scaling_dmg
 
-    def get_on_hit_damage(self, stacks=0):
+    def get_on_hit_damage(self, stacks=0, target_health=0):
         item_on_hit = super().get_on_hit_damage()
         passive_on_hit = self.get_passive_onhit(stacks)
         return item_on_hit + passive_on_hit
@@ -53,13 +53,28 @@ class Irelia(BaseChampion):
         per_hit = ability["base_per_hit"][rank - 1] + (self.total_ap * ability["ap_ratio"])
         return per_hit * hits
     
-    def no_ult_combo(self, q_rank=1, w_rank=1, e_rank=1, r_rank=1):
+    def no_ult_combo(self, q_rank=1, w_rank=1, e_rank=1, r_rank=1, target_health=0):
+        # SETUP
         q = self.get_q_damage(q_rank)
         w = self.get_w_damage(w_rank)
         e = self.get_e_damage(e_rank)
         r = self.get_r_damage(r_rank)
-        onhit = self.get_on_hit_damage(4) # assuming she has 4 stacks todo fix this later
+        onhit = self.get_on_hit_damage(4, target_health) # assuming she has 4 stacks todo fix this later
         auto =  onhit + self.base_ad + self.bonus_ad
 
+        # COMBO
         total = e + q + auto + q + w + auto * 2
+        return total
+    
+    def ult_combo(self, q_rank=1, w_rank=1, e_rank=1, r_rank=1, target_health=0):
+        # SETUP
+        q = self.get_q_damage(q_rank)
+        w = self.get_w_damage(w_rank)
+        e = self.get_e_damage(e_rank)
+        r = self.get_r_damage(r_rank)
+        onhit = self.get_on_hit_damage(4, target_health) # assuming she has 4 stacks todo fix this later
+        auto =  onhit + self.base_ad + self.bonus_ad
+
+        # COMBO
+        total = r + q + auto + e + auto + q + auto + w
         return total

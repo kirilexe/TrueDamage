@@ -23,7 +23,10 @@ if __name__ == "__main__":
 
 
     # irelia test
+    bork = item_data["Blade of the ruined king"]
 
     irelia = Irelia(level=1)
+    irelia.inventory.append(bork)
 
     print(f"Irelia no R combo damage: {irelia.no_ult_combo(q_rank=5, w_rank=3, e_rank=1, r_rank=1)}")
+    print(f"Irelia R combo damage: {irelia.ult_combo(q_rank=5, w_rank=3, e_rank=1, r_rank=1)}")

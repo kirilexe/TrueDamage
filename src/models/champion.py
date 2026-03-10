@@ -59,10 +59,21 @@ class BaseChampion:
     def total_ap(self):
         return self.base_ap + self.bonus_ap
 
-    def get_on_hit_damage(self):
+    def get_on_hit_damage(self, target_health=0):
         total_on_hit = 0
         for item in self.inventory:
-            if "on_hit" in item:
-                oh = item["on_hit"]
-                total_on_hit += oh["base_damage"] + (self.total_ap * oh["ap_ratio"])
+            oh = item.get("on_hit")
+            if not oh:
+                continue
+                
+            # get the base damage key 
+            base = oh.get("base_damage", 0)
+            ratio_dmg = self.total_ap * oh.get("ap_ratio", 0)
+            total_on_hit += base + ratio_dmg
+            
+            # -- SPECIAL CASE FOR BORK
+            percent_stat = oh.get("percent_damage_melee", 0)
+            if percent_stat > 0:
+                total_on_hit += (target_health * percent_stat)
+                
         return total_on_hit
