@@ -1,15 +1,69 @@
 {
-  "Katarina": 
-  {
+  "Katarina": {
     "stats": {
       "base_ad": 58,
-      "ad_per_level": 3.2
+      "ad_per_level": 3.2,
+      "base_ap": 0,
+      "as": 0.658,
+      "as_per_level": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      "ap_per_level": 0
     },
     "abilities": {
-      "P": {"base": [68, 240], "ap_ratio": 0.70, "bonus_ad_ratio": 0.60},
-      "Q": {"base": [80, 115, 150, 185, 220], "ap_ratio": 0.40},
-      "E": {"base": [20, 30, 40, 50, 60], "ad_ratio": 0.40, "ap_ratio": 0.25},
-      "R": {"base_per_dagger": [25, 37.5, 50], "bonus_ad_ratio": 3.43, "ap_ratio": 2.85}
+      "P": {
+        "base": [68, 240],
+        "ap_ratio": 0.70,
+        "bonus_ad_ratio": 0.60
+      },
+      "Q": {
+        "base": [80, 115, 150, 185, 220],
+        "ap_ratio": 0.40
+      },
+      "E": {
+        "base": [20, 30, 40, 50, 60],
+        "ad_ratio": 0.40,
+        "ap_ratio": 0.25
+      },
+      "R": {
+        "base_per_dagger": [25, 37.5, 50],
+        "bonus_ad_ratio": 3.43,
+        "ap_ratio": 2.85
+      }
+    }
+  },
+  "Irelia": {
+    "stats": {
+      "base_ad": 65,
+      "ad_per_level": 3.5,
+      "as": 0.656,
+      "as_per_level": [1.80, 1.89, 1.98, 2.06, 2.15, 2.24, 2.33, 2.42, 2.50, 2.59, 2.68, 2.77, 2.85, 2.94, 3.03, 3.12, 3.21],
+      "ap_per_level": 0
+    },
+    "abilities": {
+      "P": {
+        "max_stacks": 4,
+        "attack_speed_per_stack": {
+          "level_1": 0.075,
+          "level_7": 0.1375,
+          "level_13": 0.20
+        },
+        "on_hit_magic_damage": {
+          "base_at_level": "10 + (3 * (level - 1))",
+          "bonus_ad_ratio": 0.20
+        }
+      },
+      "Q": {
+        "base": [5, 25, 45, 65, 85],
+        "ad_ratio": 0.60
+      },
+      "W": {
+        "base": [10, 25, 40, 55, 70],
+        "ad_ratio": 0.40,
+        "ap_ratio": 0.40
+      },
+      "R": {
+        "base_per_hit": [125, 250, 375],
+        "ap_ratio": 0.70
+      }
     }
   }
 }
