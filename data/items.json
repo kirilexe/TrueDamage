@@ -1,0 +1,12 @@
+{
+  "Nashors Tooth": {
+    "stats": {
+      "ap": 90,
+      "attack_speed": 0.50
+    },
+    "on_hit": {
+      "base_damage": 15,
+      "ap_ratio": 0.20
+    }
+  }
+}
